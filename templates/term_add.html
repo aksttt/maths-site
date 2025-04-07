@@ -1,0 +1,44 @@
+{% extends "base_page.html" %}
+
+{% block page-title %}
+Добавить слово
+{% endblock %}
+
+{% block page-lead %}
+Заполните форму, чтобы добавить новое слово и его перевод в коллекцию.
+{% endblock %}
+
+
+{% block content %}
+<div class="container-sm px-5 py-5" id="term-form">
+    <form method="post" action="{% url 'add-term' %}">
+        {% csrf_token %}  <!-- Добавлен CSRF-токен -->
+
+        {% if error %}
+        <div class="alert alert-danger" role="alert">
+            {{ error }}
+        </div>
+        {% endif %}
+
+        <div class="row px-5 py-2">
+            <h3>Новая карточка</h3>
+        </div>
+
+        <div class="row px-5 py-2">
+            <div class="col-md-6">
+                <label for="new_term">Слово на английском</label>
+                <input type="text" class="form-control" name="new_term" id="new_term" required>
+            </div>
+
+            <div class="col-md-6">
+                <label for="new_translation">Перевод</label>
+                <input type="text" class="form-control" name="new_translation" id="new_translation" required>
+            </div>
+        </div>
+
+        <div class="row px-5 py-4">
+            <button type="submit" class="btn btn-primary">Сохранить</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

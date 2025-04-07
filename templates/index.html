@@ -1,0 +1,54 @@
+{% extends "base_page.html" %}
+
+{% block page-title %}
+Тренажер английского языка
+{% endblock %}
+
+{% block page-lead %}
+Этот проект поможет вам изучать новые слова и запоминать их перевод. <br/>
+Добавляйте карточки, повторяйте их и отслеживайте свой прогресс!
+{% endblock %}
+
+{% block content %}
+<div class="container px-4 py-5" id="project-contents">
+    <h2 class="pb-2 border-bottom">Функционал</h2>
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+        <div class="col d-flex">
+            <div class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+                <svg class="bi" width="1em" height="1em">
+                    <use xlink:href="#list"></use>
+                </svg>
+            </div>
+            <div>
+                <h3 class="fs-2">Список слов</h3>
+                <p>Все добавленные слова и их переводы в удобной таблице. Данные хранятся в текстовом файле.</p>
+                <a href="{% url 'terms-list' %}" class="btn btn-primary">Перейти</a>
+            </div>
+        </div>
+        <div class="col d-flex">
+            <div class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+                <svg class="bi" width="1em" height="1em">
+                    <use xlink:href="#plus"></use>
+                </svg>
+            </div>
+            <div>
+                <h3 class="fs-2">Добавить слово</h3>
+                <p>Форма для добавления новых карточек: английское слово и его перевод.</p>
+                <a href="{% url 'add-term' %}" class="btn btn-primary">Добавить</a>
+            </div>
+        </div>
+        <div class="col d-flex">
+            <div class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+                <svg class="bi" width="1em" height="1em">
+                    <use xlink:href="#search"></use>
+                </svg>
+            </div>
+            <div>
+                <h3 class="fs-2">Поиск слов</h3>
+                <p>Найдите нужное слово или перевод в вашей коллекции.</p>
+                <a href="{% url 'search-term' %}" class="btn btn-primary">Искать</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
